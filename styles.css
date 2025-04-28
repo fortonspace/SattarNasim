@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #ff8a00, #da1b60);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+    text-align: center;
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    animation: cloudEffect 8s linear infinite;
+}
+
+.wishes-container {
+    position: relative;
+    margin-top: 20px;
+}
+
+.wish-box {
+    display: inline-block;
+    padding: 20px;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    font-size: 1.2rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    animation: floatBox 3s ease-in-out infinite;
+    color: #ff1493;
+    font-weight: bold;
+    text-align: center;
+}
+
+.wish-box:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.balloons {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: balloonsMove 8s ease-in infinite;
+    z-index: 5;
+}
+
+.balloon {
+    width: 50px;
+    height: 70px;
+    background-color: #ff1493;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 5px;
+    animation: floatUp 4s ease-in infinite;
+}
+
+.balloon:nth-child(2) {
+    background-color: #ff6347;
+    animation-delay: 1s;
+}
+
+.balloon:nth-child(3) {
+    background-color: #1e90ff;
+    animation-delay: 2s;
+}
+
+.balloon:nth-child(4) {
+    background-color: #32cd32;
+    animation-delay: 3s;
+}
+
+.boom-effect {
+    font-size: 150px;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: boom 1s ease-out;
+    opacity: 0;
+    animation-delay: 1s;
+    z-index: 3;
+}
+
+.final-message {
+    font-size: 1.8rem;
+    margin-top: 30px;
+    animation: fadeIn 5s ease-out;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes cloudEffect {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes floatBox {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes balloonsMove {
+    0% { top: -100%; }
+    100% { top: 100%; }
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-500px); }
+}
+
+@keyframes boom {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(10);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
